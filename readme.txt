@@ -2,7 +2,7 @@
 Contributors: nielslange
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=P6EQ8QQ3SZSCU
 Tags: wordpress, woocommerce, plugin, free gift, free gifts, gift, gifts 
-Stable tag: 1.0
+Stable tag: 1.1.0
 Tested up to: 4.5.3
 Requires at least: 3.4
 License: GPLv2 or later
@@ -24,8 +24,14 @@ SMNTCS WooCommerce Free Gift is a lightweight plugin to give away free gifts to 
 
 == Screenshots ==
 
+1. Message when total order amount is to low
+2. Message when total order amount is above the minimum value
+3. Gift that has been added to the cart by the user
 
 == Changelog ==
+
+= 1.1.0 =
+* Save settings as option, not as theme_mod
 
 = 1.0.0 =
 * Initial release
