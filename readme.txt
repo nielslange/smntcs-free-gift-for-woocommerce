@@ -22,11 +22,37 @@ SMNTCS WooCommerce Free Gift is a lightweight plugin to give away free gifts to 
 4. Enable free gifts
 5. Adjust settings based on your needs
 
+== Frequently Asked Questions ==
+
+= How do I enable free gifts? =
+
+1. Go to 'Products' » 'Categories' and create a category for the gifts, e.g. Gift
+2. Go to 'Products' » 'Add Product' and create your gift product
+3. Make sure to set the 'Regular price' to 0 and the 'Catalog visibility' to 'Hidden'
+4. Go to 'Appearance' » 'Customise' » 'Customise'
+5. Activate the checkbox 'Enable free gift'
+6. Provide the 'Minimum cart value', e.g. 10.00
+7. Select the 'Gift category'
+8. Provide a message for 'Message "Proceed shopping"'
+9. Provide a message for 'Button "Proceed shopping"'
+10. Provide a message for 'Message "Add gift"'
+11. Provide a message for 'Button "Add gift"'
+12. Click on 'Save & Publish'
+
+= Can I create multiple gifts? =
+
+Yes, you can create multiple gifts.
+
+= I have multiple gifts set up. Can my customer choose his gift? =
+
+No, at the moment a random gift will be assigned.  
+
 == Screenshots ==
 
-1. Message when total order amount is to low
-2. Message when total order amount is above the minimum value
-3. Gift that has been added to the cart by the user
+1. Setting within the Customizer
+2. Message when total order amount is to low
+3. Message when total order amount is above the minimum value
+4. Gift that has been added to the cart by the user
 
 == Changelog ==
 
