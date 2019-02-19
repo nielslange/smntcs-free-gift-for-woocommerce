@@ -1,9 +1,10 @@
 ===  SMNTCS WooCommerce Free Gift ===
+
 Contributors: nielslange
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=P6EQ8QQ3SZSCU
-Tags: wordpress, woocommerce, plugin, free gift, free gifts, gift, gifts 
-Stable tag: 1.1.0
-Tested up to: 4.5.3
+Tags: WooCommerce, WooCommerce Gift, Free Gift
+Stable tag: 1.2
+Tested up to: 5.0
 Requires at least: 3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +19,7 @@ SMNTCS WooCommerce Free Gift is a lightweight plugin to give away free gifts to 
 
 1. Upload the plugin to the '/wp-content/plugins/' directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to 'Apperance' » 'Customize'
+3. Go to 'Appearance' » 'Customize'
 4. Enable free gifts
 5. Adjust settings based on your needs
 
@@ -43,7 +44,7 @@ SMNTCS WooCommerce Free Gift is a lightweight plugin to give away free gifts to 
 
 Yes, you can create multiple gifts.
 
-= I have multiple gifts set up. Can my customer choose his gift? =
+= I have multiple gifts set up. Can my customers choose their gift? =
 
 No, at the moment a random gift will be assigned.  
 
@@ -56,8 +57,12 @@ No, at the moment a random gift will be assigned.
 
 == Changelog ==
 
-= 1.1.0 =
+= 1.2 =
+* Added README.md
+* Tested up to 5.0
+
+= 1.1 =
 * Save settings as option, not as theme_mod
 
-= 1.0.0 =
+= 1.0 =
 * Initial release
