@@ -3,9 +3,10 @@
 Contributors: nielslange
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=P6EQ8QQ3SZSCU
 Tags: WooCommerce, WooCommerce Gift, Free Gift
-Stable tag: 1.2
-Tested up to: 5.0
+Stable tag: 1.3
 Requires at least: 3.4
+Tested up to: 5.2
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,9 +58,12 @@ No, at the moment a random gift will be assigned.
 
 == Changelog ==
 
+= 1.3 =
+* Test up to 5.2
+
 = 1.2 =
-* Added README.md
-* Tested up to 5.0
+* Add README.md
+* Test up to 5.0
 
 = 1.1 =
 * Save settings as option, not as theme_mod

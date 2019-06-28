@@ -3,33 +3,23 @@
  * Plugin Name: SMNTCS WooCommerce Free Gift
  * Plugin URI: https://github.com/nielslange/smntcs-woocommerce-free-gift
  * Description: Give free gifts to your WooCommerce customers
- * Author: Niels Lange
+ * Author: Niels Lange <info@nielslange.de>
  * Author URI: https://nielslange.com
  * Text Domain: smntcs-woocommerce-free-gift
  * Domain Path: /languages/
- * Version: 1.2
+ * Version: 1.3
  * Requires at least: 3.4
- * Tested up to: 5.0
- * License: GPLv2
+ * Requires PHP: 5.6
+ * Tested up to: 5.2
+ * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * @category   Plugin
+ * @package    WordPress
+ * @subpackage SMNTCS WooCommerce Free Gift
+ * @author     Niels Lange <info@nielslange.de>
+ * @license    http://opensource.org/licenses/gpl-license.php GNU Public License
  */
-
-/* Copyright 2014-2016	Niels Lange (email : info@nielslange.de)
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
 
 // Avoid direct plugin access
 if ( !defined( 'ABSPATH' ) ) exit;
