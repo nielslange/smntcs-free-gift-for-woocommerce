@@ -1,0 +1,26 @@
+{
+	"name": "smntcs-woocommerce-free-gift",
+	"version": "1.0.0",
+	"description": "Give free gifts to your WooCommerce customers",
+	"author": "Niels Lange",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"WordPress",
+		"Plugin",
+		"SMNTCS WooCommerce Free Gift"
+	],
+	"homepage": "https://github.com/nielslange/smntcs-woocommerce-free-gift#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nielslange/smntcs-woocommerce-free-gift.git"
+	},
+	"bugs": {
+		"url": "https://github.com/nielslange/smntcs-woocommerce-free-gift/issues"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^5.0.0"
+	},
+	"scripts": {
+		"lint:pkg-json": "wp-scripts lint-pkg-json"
+	}
+}
