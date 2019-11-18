@@ -107,7 +107,8 @@ function wfg_enhance_customizer( $wp_customize ) {
 	$wp_customize->add_control(
 		'wfg_minimum_cart_value',
 		array(
-			'label'   => __( 'Minimum cart value in ' . get_woocommerce_currency(), 'smntcs-woocommerce-free-gift' ),
+			/* translators: %s is the base currency code, e.g. USD */
+			'label'   => printf( esc_html__( 'Minimum cart value in %s', 'smntcs-woocommerce-free-gift' ), esc_html( get_woocommerce_currency() ) ),
 			'section' => 'wfg_section',
 			'type'    => 'text',
 		)
@@ -234,13 +235,13 @@ if ( get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value
 /**
  * Check if cart has any physical products
  *
- * @return void
+ * @return bool True if product is virtual, else false.
  */
 function wfg_has_physical_products() {
 	global $woocommerce;
 
 	foreach ( $woocommerce->cart->get_cart() as $product ) {
-		if ( get_post_meta( $product['product_id'], '_virtual', true ) != 'yes' ) {
+		if ( get_post_meta( $product['product_id'], '_virtual', true ) !== 'yes' ) {
 			return true;
 		}
 	}
@@ -251,14 +252,14 @@ function wfg_has_physical_products() {
 /**
  * Check if cart has any physical products
  *
- * @return void
+ * @return int|bool Product ID if cart has physical products, else false.
  */
 function wfg_has_gift() {
 	global $woocommerce;
 
 	foreach ( $woocommerce->cart->get_cart() as $product ) {
 		foreach ( get_the_terms( $product['product_id'], 'product_cat' ) as $category ) {
-			if ( $category->slug == get_option( 'wfg_gift_category' ) ) {
+			if ( get_option( 'wfg_gift_category' ) === $category->slug ) {
 				return $product['product_id'];
 			}
 		}
@@ -280,7 +281,7 @@ if ( ! get_option( 'wfg_button_value_ok' ) ) {
 	function wfg_hide_gift_category( $args ) {
 		$product         = get_term_by( 'slug', get_option( 'wfg_gift_category' ), 'product_cat' );
 		$args['exclude'] = array( $product->term_id );
-		
+
 		return $args;
 	}
 	add_filter( 'woocommerce_product_categories_widget_args', 'wfg_hide_gift_category' );
