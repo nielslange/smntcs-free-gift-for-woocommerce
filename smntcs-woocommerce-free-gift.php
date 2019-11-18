@@ -21,125 +21,268 @@
  * @license    http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-// Avoid direct plugin access
-if ( !defined( 'ABSPATH' ) ) exit;
+/**
+ * Avoid direct plugin access
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-// Load text domain
-add_action('plugins_loaded', 'wfg_load_textdomain');
+/**
+ * Load text domain
+ *
+ * @return void
+ */
 function wfg_load_textdomain() {
-	load_plugin_textdomain( 'smntcs-woocommerce-free-gift', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/'  );
+	load_plugin_textdomain( 'smntcs-woocommerce-free-gift', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
+add_action( 'plugins_loaded', 'wfg_load_textdomain' );
 
-// Enhance WordPress customizer
-add_action( 'customize_register', 'wfg_enhance_customizer' );
-function wfg_enhance_customizer($wp_customize) {
+/**
+ * Enhance WordPress customizer
+ *
+ * @param WP_Customize_Manager $wp_customize The customizer object.
+ * @return void
+ */
+function wfg_enhance_customizer( $wp_customize ) {
 	global $woocommerce;
-	
-	// Fetch WooCommerce categories 
-	$product_cats = get_terms( 'product_cat');
-	foreach ($product_cats as $product_cat) {
-		$choices[$product_cat->slug] = $product_cat->name;
-	}
-	
-	// Create customizer section
-	$wp_customize->add_section( 'wfg_section', array( 'title' => __('WooCommerce Free Gift', 'smntcs-woocommerce-free-gift'), 'priority' => 150 ));
-	
-	// Enable free gift 
-	$wp_customize->add_setting( 'wfg_enable_free_gift', array( 'default' => true, 'type' => 'option' ) );
-	$wp_customize->add_control( 'wfg_enable_free_gift', array( 'label' => __('Enable free gift', 'smntcs-woocommerce-free-gift'), 'section' => 'wfg_section', 'type' => 'checkbox' ));
-	
-	// Disable for virtual products
-	/*
-	$wp_customize->add_setting( 'wfg_disable_virtual_products', array( 'default' => false) );
-	$wp_customize->add_control( 'wfg_disable_virtual_products', array( 'label' => __('Disable for virtual products', 'smntcs-woocommerce-free-gift'), 'section' => 'wfg_section', 'type' => 'checkbox' ));
-	*/
-	
-	// Hide gift category
-	$wp_customize->add_setting( 'wfg_hide_gift_category', array( 'default' => false, 'type' => 'option' ) );
-	$wp_customize->add_control( 'wfg_hide_gift_category', array( 'label' => __('Hide gift category', 'smntcs-woocommerce-free-gift'), 'section' => 'wfg_section', 'type' => 'checkbox' ));
-	
-	// Minimum cart value
-	$wp_customize->add_setting( 'wfg_minimum_cart_value', array( 'default' => '10.00', 'type' => 'option' ) );
-	$wp_customize->add_control( 'wfg_minimum_cart_value', array( 'label' => __('Minimum cart value in ' . get_woocommerce_currency(), 'smntcs-woocommerce-free-gift'), 'section' => 'wfg_section', 'type' => 'text' ));
-	
-	// Gift category
-	$wp_customize->add_setting( 'wfg_gift_category', array( 'default' => '', 'type' => 'option' ) );
-	$wp_customize->add_control( 'wfg_gift_category', array( 'label' => __('Gift category', 'smntcs-woocommerce-free-gift'), 'section' => 'wfg_section', 'type' => 'select', 'choices' => $choices));
-	
-	// Message "Proceed shopping"
-	$wp_customize->add_setting( 'wfg_message_value_low', array( 'default' => 'From an order value of EUR 10.00 you will receive a free gift from me.', 'type' => 'option' ) );
-	$wp_customize->add_control( 'wfg_message_value_low', array( 'label' => __('Message "Proceed shopping"', 'smntcs-woocommerce-free-gift'), 'section' => 'wfg_section', 'type' => 'textarea' ));
-	
-	// Button "Proceed shopping"
-	$wp_customize->add_setting( 'wfg_button_value_low', array( 'default' => 'Proceed shopping', 'type' => 'option' ) );
-	$wp_customize->add_control( 'wfg_button_value_low', array( 'label' => __('Button "Proceed shopping"', 'smntcs-woocommerce-free-gift'), 'section' => 'wfg_section', 'type' => 'text' ));
-	
-	// Message "Add gift"
-	$wp_customize->add_setting( 'wfg_message_value_ok', array( 'default' => 'Hurrah, your order value is above EUR 10.00. May I give you a free gift?', 'type' => 'option' ) );
-	$wp_customize->add_control( 'wfg_message_value_ok', array( 'label' => __('Message "Add gift"', 'smntcs-woocommerce-free-gift'), 'section' => 'wfg_section', 'type' => 'textarea' ));
-	
-	// Button "Add gift"
-	$wp_customize->add_setting( 'wfg_button_value_ok', array( 'default' => 'Hell yeah!', 'type' => 'option' ) );
-	$wp_customize->add_control( 'wfg_button_value_ok', array( 'label' => __('Button "Add gift"', 'smntcs-woocommerce-free-gift'), 'section' => 'wfg_section', 'type' => 'text' ));
-}
 
-// Show gift status message in cart
-if ( get_option('wfg_enable_free_gift') && get_option('wfg_minimum_cart_value') && get_option('wfg_gift_category') && get_option('wfg_message_value_low') && get_option('wfg_button_value_low') && get_option('wfg_message_value_ok') && get_option('wfg_button_value_ok')) {
- 	add_action( 'woocommerce_before_cart_table', 'wfg_status_message', 100 );
-	
+	// Fetch WooCommerce categories.
+	$product_cats = get_terms( 'product_cat' );
+	foreach ( $product_cats as $product_cat ) {
+		$choices[ $product_cat->slug ] = $product_cat->name;
+	}
+
+	// Create customizer section.
+	$wp_customize->add_section(
+		'wfg_section',
+		array(
+			'title'    => __( 'WooCommerce Free Gift', 'smntcs-woocommerce-free-gift' ),
+			'priority' => 150,
+		)
+	);
+
+	// Enable free gift.
+	$wp_customize->add_setting(
+		'wfg_enable_free_gift',
+		array(
+			'default' => true,
+			'type'    => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'wfg_enable_free_gift',
+		array(
+			'label'   => __( 'Enable free gift', 'smntcs-woocommerce-free-gift' ),
+			'section' => 'wfg_section',
+			'type'    => 'checkbox',
+		)
+	);
+
+	// Hide gift category.
+	$wp_customize->add_setting(
+		'wfg_hide_gift_category',
+		array(
+			'default' => false,
+			'type'    => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'wfg_hide_gift_category',
+		array(
+			'label'   => __( 'Hide gift category', 'smntcs-woocommerce-free-gift' ),
+			'section' => 'wfg_section',
+			'type'    => 'checkbox',
+		)
+	);
+
+	// Minimum cart value.
+	$wp_customize->add_setting(
+		'wfg_minimum_cart_value',
+		array(
+			'default' => '10.00',
+			'type'    => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'wfg_minimum_cart_value',
+		array(
+			/* translators: %s is the base currency code, e.g. USD */
+			'label'   => printf( esc_html__( 'Minimum cart value in %s', 'smntcs-woocommerce-free-gift' ), esc_html( get_woocommerce_currency() ) ),
+			'section' => 'wfg_section',
+			'type'    => 'text',
+		)
+	);
+
+	// Gift category.
+	$wp_customize->add_setting(
+		'wfg_gift_category',
+		array(
+			'default' => '',
+			'type'    => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'wfg_gift_category',
+		array(
+			'label'   => __( 'Gift category', 'smntcs-woocommerce-free-gift' ),
+			'section' => 'wfg_section',
+			'type'    => 'select',
+			'choices' => $choices,
+		)
+	);
+
+	// Message "Proceed shopping".
+	$wp_customize->add_setting(
+		'wfg_message_value_low',
+		array(
+			'default' => 'From an order value of EUR 10.00 you will receive a free gift from me.',
+			'type'    => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'wfg_message_value_low',
+		array(
+			'label'   => __( 'Message "Proceed shopping"', 'smntcs-woocommerce-free-gift' ),
+			'section' => 'wfg_section',
+			'type'    => 'textarea',
+		)
+	);
+
+	// Button "Proceed shopping".
+	$wp_customize->add_setting(
+		'wfg_button_value_low',
+		array(
+			'default' => 'Proceed shopping',
+			'type'    => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'wfg_button_value_low',
+		array(
+			'label'   => __( 'Button "Proceed shopping"', 'smntcs-woocommerce-free-gift' ),
+			'section' => 'wfg_section',
+			'type'    => 'text',
+		)
+	);
+
+	// Message "Add gift".
+	$wp_customize->add_setting(
+		'wfg_message_value_ok',
+		array(
+			'default' => 'Hurrah, your order value is above EUR 10.00. May I give you a free gift?',
+			'type'    => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'wfg_message_value_ok',
+		array(
+			'label'   => __( 'Message "Add gift"', 'smntcs-woocommerce-free-gift' ),
+			'section' => 'wfg_section',
+			'type'    => 'textarea',
+		)
+	);
+
+	// Button "Add gift".
+	$wp_customize->add_setting(
+		'wfg_button_value_ok',
+		array(
+			'default' => 'Hell yeah!',
+			'type'    => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'wfg_button_value_ok',
+		array(
+			'label'   => __( 'Button "Add gift"', 'smntcs-woocommerce-free-gift' ),
+			'section' => 'wfg_section',
+			'type'    => 'text',
+		)
+	);
+}
+add_action( 'customize_register', 'wfg_enhance_customizer' );
+
+/**
+ * Show gift status message in cart
+ */
+if ( get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value' ) && get_option( 'wfg_gift_category' ) && get_option( 'wfg_message_value_low' ) && get_option( 'wfg_button_value_low' ) && get_option( 'wfg_message_value_ok' ) && get_option( 'wfg_button_value_ok' ) ) {
+	/**
+	 * Print status message
+	 *
+	 * @return void
+	 */
 	function wfg_status_message() {
 		global $woocommerce;
-	
-		if ( $woocommerce->cart->subtotal < get_option('wfg_minimum_cart_value') && !wfg_has_gift()) {
-			wc_print_notice( get_option('wfg_message_value_low') . ' <a href="/shop">' . get_option('wfg_button_value_low') . '</a>', 'notice' );
+
+		if ( $woocommerce->cart->subtotal < get_option( 'wfg_minimum_cart_value' ) && ! wfg_has_gift() ) {
+			wc_print_notice( get_option( 'wfg_message_value_low' ) . ' <a href="/shop">' . get_option( 'wfg_button_value_low' ) . '</a>', 'notice' );
 		} else {
-			if ( !wfg_has_gift() ) {
+			if ( ! wfg_has_gift() ) {
 				$args = array(
-					'post_type' 		=> 'product',
-					'product_cat'		=> get_option('wfg_gift_category'),
-					'orderby'        	=> 'rand',
-					'posts_per_page' 	=> '1',
+					'post_type'      => 'product',
+					'product_cat'    => get_option( 'wfg_gift_category' ),
+					'orderby'        => 'rand',
+					'posts_per_page' => '1',
 				);
 				$gift = new WP_Query( $args );
-				wc_print_notice( get_option('wfg_message_value_ok') . '  <a href="?add-to-cart=' . $gift->post->ID . '">' . get_option('wfg_button_value_ok') . '</a>', 'success' );
+				wc_print_notice( get_option( 'wfg_message_value_ok' ) . '  <a href="?add-to-cart=' . $gift->post->ID . '">' . get_option( 'wfg_button_value_ok' ) . '</a>', 'success' );
 			}
 		}
 	}
+	add_action( 'woocommerce_before_cart_table', 'wfg_status_message', 100 );
 }
 
-// Check if cart has any physical products
+/**
+ * Check if cart has any physical products
+ *
+ * @return bool True if product is virtual, else false.
+ */
 function wfg_has_physical_products() {
 	global $woocommerce;
 
-	foreach ($woocommerce->cart->get_cart() as $product) {
-		if ( get_post_meta($product['product_id'], '_virtual', true) != 'yes') {
+	foreach ( $woocommerce->cart->get_cart() as $product ) {
+		if ( get_post_meta( $product['product_id'], '_virtual', true ) !== 'yes' ) {
 			return true;
 		}
 	}
-	
+
 	return false;
 }
 
-// Check if cart has any physical products
+/**
+ * Check if cart has any physical products
+ *
+ * @return int|bool Product ID if cart has physical products, else false.
+ */
 function wfg_has_gift() {
 	global $woocommerce;
 
-	foreach ($woocommerce->cart->get_cart() as $product) {
-		foreach (get_the_terms($product['product_id'], 'product_cat') as $category) {
-			if ( $category->slug == get_option('wfg_gift_category') ) return $product['product_id'];
+	foreach ( $woocommerce->cart->get_cart() as $product ) {
+		foreach ( get_the_terms( $product['product_id'], 'product_cat' ) as $category ) {
+			if ( get_option( 'wfg_gift_category' ) === $category->slug ) {
+				return $product['product_id'];
+			}
 		}
 	}
 
 	return false;
 }
 
-// Hide gift category
-if ( !get_option('wfg_button_value_ok') ) {
-	add_filter( 'woocommerce_product_categories_widget_args', 'wfg_hide_gift_category' );
-	function wfg_hide_gift_category($args) {
-		$product 		 = get_term_by( 'slug', get_option('wfg_gift_category'), 'product_cat' );
-		$args['exclude'] = array($product->term_id);
-	
+/**
+ * Hide gift category
+ */
+if ( ! get_option( 'wfg_button_value_ok' ) ) {
+	/**
+	 * Hide gift category
+	 *
+	 * @param array $args The original array with arguments.
+	 * @return array $args The updated array with arguments.
+	 */
+	function wfg_hide_gift_category( $args ) {
+		$product         = get_term_by( 'slug', get_option( 'wfg_gift_category' ), 'product_cat' );
+		$args['exclude'] = array( $product->term_id );
+
 		return $args;
 	}
+	add_filter( 'woocommerce_product_categories_widget_args', 'wfg_hide_gift_category' );
 }
