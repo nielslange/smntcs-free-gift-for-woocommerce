@@ -1,4 +1,4 @@
-# SMNTCS WooCommerce Free Gift
+# SMNTCS Free Gift for WooCommerce
 
 [![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level)
 [![Build Status](https://api.travis-ci.com/nielslange/smntcs-woocommerce-free-gift.svg?branch=master)](https://api.travis-ci.com/nielslange/smntcs-woocommerce-free-gift)

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: SMNTCS WooCommerce Free Gift
+ * Plugin Name: SMNTCS Free Gift for WooCommerce
  * Plugin URI: https://github.com/nielslange/smntcs-woocommerce-free-gift
  * Description: Give free gifts to your WooCommerce customers
  * Author: Niels Lange <info@nielslange.de>
@@ -16,7 +16,7 @@
  *
  * @category   Plugin
  * @package    WordPress
- * @subpackage SMNTCS WooCommerce Free Gift
+ * @subpackage SMNTCS Free Gift for WooCommerce
  * @author     Niels Lange <info@nielslange.de>
  * @license    http://opensource.org/licenses/gpl-license.php GNU Public License
  */
