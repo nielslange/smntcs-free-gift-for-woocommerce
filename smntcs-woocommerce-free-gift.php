@@ -110,7 +110,7 @@ function wfg_enhance_customizer( $wp_customize ) {
 		'wfg_minimum_cart_value',
 		array(
 			/* translators: %s is the base currency code, e.g. USD */
-			'label'   => printf( esc_html__( 'Minimum cart value in %s', 'smntcs-woocommerce-free-gift' ), esc_html( get_woocommerce_currency() ) ),
+			'label'   => sprintf( esc_html__( 'Minimum cart value in %s', 'smntcs-woocommerce-free-gift' ), esc_html( get_woocommerce_currency() ) ),
 			'section' => 'wfg_section',
 			'type'    => 'text',
 		)
@@ -189,7 +189,7 @@ function wfg_enhance_customizer( $wp_customize ) {
 	$wp_customize->add_setting(
 		'wfg_button_value_ok',
 		array(
-			'default' => 'Hell yeah!',
+			'default' => 'Yes, please!',
 			'type'    => 'option',
 		)
 	);
