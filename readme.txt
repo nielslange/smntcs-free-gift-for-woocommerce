@@ -1,4 +1,4 @@
-===  SMNTCS WooCommerce Free Gift ===
+===  SMNTCS Free Gift for WooCommerce ===
 
 Contributors: nielslange
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=P6EQ8QQ3SZSCU
@@ -14,7 +14,7 @@ Give free gifts to your WooCommerce customers
 
 == Description ==
 
-SMNTCS WooCommerce Free Gift is a lightweight plugin to give away free gifts to your WooCommerce customers
+SMNTCS Free Gift for WooCommerce is a lightweight plugin to give away free gifts to your WooCommerce customers
 
 == Installation ==
 
