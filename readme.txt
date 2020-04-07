@@ -3,10 +3,12 @@
 Contributors: nielslange
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=P6EQ8QQ3SZSCU
 Tags: WooCommerce, WooCommerce Gift, Free Gift
-Stable tag: 1.4
+Stable tag: 1.5
 Requires at least: 3.4
 Tested up to: 5.3
 Requires PHP: 5.6
+WC requires at least: 3.0
+WC tested up to: 4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +59,11 @@ No, at the moment a random gift will be assigned.
 4. Gift that has been added to the cart by the user
 
 == Changelog ==
+
+= 1.5 =
+
+* [Declaring required and supported WooCommerce version](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/9)
+* Test up to 5.4
 
 = 1.4 =
 

@@ -25,23 +25,22 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-woocommerce-free
 
 ## Changelog
 
-### 1.4
+### 1.5
+* [Declaring required and supported WooCommerce version](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/9)
+* Test up to 5.4
 
+### 1.4
 * Test up to 5.3
 
 ### 1.3
-
 * Test up to 5.2
 
 ### 1.2
-
 * Add README.md
 * Test up to 5.0
 
 ### 1.1
-
 * Save settings as option, not as theme_mod
 
 ### 1.0
-
 * Initial release
