@@ -7,10 +7,12 @@
  * Author URI: https://nielslange.com
  * Text Domain: smntcs-woocommerce-free-gift
  * Domain Path: /languages/
- * Version: 1.4
+ * Version: 1.5
  * Requires at least: 3.4
  * Requires PHP: 5.6
- * Tested up to: 5.3
+ * Tested up to: 5.4
+ * WC requires at least: 3.0
+ * WC tested up to: 4.0
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
