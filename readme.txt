@@ -62,6 +62,7 @@ No, at the moment a random gift will be assigned.
 
 === 1.6 ===
 * [Add check if WooCommerce is installed](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/14)
+* [Move settings into WooCommerce customizer](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/12)
 
 === 1.5 ===
 * [Declaring required and supported WooCommerce version](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/9)
