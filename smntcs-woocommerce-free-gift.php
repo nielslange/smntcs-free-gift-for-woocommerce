@@ -7,7 +7,7 @@
  * Author URI: https://nielslange.com
  * Text Domain: smntcs-woocommerce-free-gift
  * Domain Path: /languages/
- * Version: 1.5
+ * Version: 1.6
  * Requires at least: 3.4
  * Requires PHP: 5.6
  * Tested up to: 5.4
@@ -29,6 +29,25 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+/**
+ * Show warning if WooCommerce is not active or WooCommerce version < 3.0
+ *
+ * @since 1.8
+ */
+add_action(
+	'admin_notices',
+	function () {
+		global $woocommerce;
+
+		if ( ! class_exists( 'WooCommerce' ) || version_compare( $woocommerce->version, '3.0', '<' ) ) {
+			$class   = 'notice notice-warning is-dismissible';
+			$message = __( 'SMNTCS Free Gift for WooCommerce requires at least WooCommerce 3.0', 'smntcs-woocommerce-free-gift' );
+
+			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+		}
+	}
+);
 
 /**
  * Load text domain
