@@ -83,8 +83,9 @@ function wfg_enhance_customizer( $wp_customize ) {
 	$wp_customize->add_section(
 		'wfg_section',
 		array(
-			'title'    => __( 'WooCommerce Free Gift', 'smntcs-woocommerce-free-gift' ),
-			'priority' => 150,
+			'title'    => __( 'Free Gift', 'smntcs-woocommerce-free-gift' ),
+			'priority' => 50,
+			'panel'    => 'woocommerce',
 		)
 	);
 
@@ -231,13 +232,18 @@ add_action( 'customize_register', 'wfg_enhance_customizer' );
 /**
  * Show gift status message in cart
  */
-if ( class_exists( 'WooCommerce' ) && get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value' ) && get_option( 'wfg_gift_category' ) && get_option( 'wfg_message_value_low' ) && get_option( 'wfg_button_value_low' ) && get_option( 'wfg_message_value_ok' ) && get_option( 'wfg_button_value_ok' ) ) {
+if ( get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value' ) && get_option( 'wfg_gift_category' ) && get_option( 'wfg_message_value_low' ) && get_option( 'wfg_button_value_low' ) && get_option( 'wfg_message_value_ok' ) && get_option( 'wfg_button_value_ok' ) ) {
 	/**
 	 * Print status message
 	 *
 	 * @return void
 	 */
 	function wfg_status_message() {
+		// Return if WooCommerce hasn't been installed.
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return;
+		}
+
 		global $woocommerce;
 
 		if ( $woocommerce->cart->subtotal < get_option( 'wfg_minimum_cart_value' ) && ! wfg_has_gift() ) {
