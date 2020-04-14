@@ -68,6 +68,11 @@ add_action( 'plugins_loaded', 'wfg_load_textdomain' );
 function wfg_enhance_customizer( $wp_customize ) {
 	global $woocommerce;
 
+	// Return if WooCommerce hasn't been installed.
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return;
+	}
+
 	// Fetch WooCommerce categories.
 	$product_cats = get_terms( 'product_cat' );
 	foreach ( $product_cats as $product_cat ) {
@@ -226,7 +231,7 @@ add_action( 'customize_register', 'wfg_enhance_customizer' );
 /**
  * Show gift status message in cart
  */
-if ( get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value' ) && get_option( 'wfg_gift_category' ) && get_option( 'wfg_message_value_low' ) && get_option( 'wfg_button_value_low' ) && get_option( 'wfg_message_value_ok' ) && get_option( 'wfg_button_value_ok' ) ) {
+if ( class_exists( 'WooCommerce' ) && get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value' ) && get_option( 'wfg_gift_category' ) && get_option( 'wfg_message_value_low' ) && get_option( 'wfg_button_value_low' ) && get_option( 'wfg_message_value_ok' ) && get_option( 'wfg_button_value_ok' ) ) {
 	/**
 	 * Print status message
 	 *
@@ -259,6 +264,11 @@ if ( get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value
  * @return bool True if product is virtual, else false.
  */
 function wfg_has_physical_products() {
+	// Return if WooCommerce hasn't been installed.
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return;
+	}
+
 	global $woocommerce;
 
 	foreach ( $woocommerce->cart->get_cart() as $product ) {
@@ -276,6 +286,11 @@ function wfg_has_physical_products() {
  * @return int|bool Product ID if cart has physical products, else false.
  */
 function wfg_has_gift() {
+	// Return if WooCommerce hasn't been installed.
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return;
+	}
+
 	global $woocommerce;
 
 	foreach ( $woocommerce->cart->get_cart() as $product ) {
