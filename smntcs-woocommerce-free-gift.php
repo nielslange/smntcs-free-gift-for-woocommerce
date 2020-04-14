@@ -7,7 +7,7 @@
  * Author URI: https://nielslange.com
  * Text Domain: smntcs-woocommerce-free-gift
  * Domain Path: /languages/
- * Version: 1.5
+ * Version: 1.6
  * Requires at least: 3.4
  * Requires PHP: 5.6
  * Tested up to: 5.4
@@ -31,6 +31,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Show warning if WooCommerce is not active or WooCommerce version < 3.0
+ *
+ * @since 1.8
+ */
+add_action(
+	'admin_notices',
+	function () {
+		global $woocommerce;
+
+		if ( ! class_exists( 'WooCommerce' ) || version_compare( $woocommerce->version, '3.0', '<' ) ) {
+			$class   = 'notice notice-warning is-dismissible';
+			$message = __( 'SMNTCS Free Gift for WooCommerce requires at least WooCommerce 3.0', 'smntcs-woocommerce-free-gift' );
+
+			printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+		}
+	}
+);
+
+/**
  * Load text domain
  *
  * @return void
@@ -48,6 +67,11 @@ add_action( 'plugins_loaded', 'wfg_load_textdomain' );
  */
 function wfg_enhance_customizer( $wp_customize ) {
 	global $woocommerce;
+
+	// Return if WooCommerce hasn't been installed.
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return;
+	}
 
 	// Fetch WooCommerce categories.
 	$product_cats = get_terms( 'product_cat' );
@@ -207,7 +231,7 @@ add_action( 'customize_register', 'wfg_enhance_customizer' );
 /**
  * Show gift status message in cart
  */
-if ( get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value' ) && get_option( 'wfg_gift_category' ) && get_option( 'wfg_message_value_low' ) && get_option( 'wfg_button_value_low' ) && get_option( 'wfg_message_value_ok' ) && get_option( 'wfg_button_value_ok' ) ) {
+if ( class_exists( 'WooCommerce' ) && get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value' ) && get_option( 'wfg_gift_category' ) && get_option( 'wfg_message_value_low' ) && get_option( 'wfg_button_value_low' ) && get_option( 'wfg_message_value_ok' ) && get_option( 'wfg_button_value_ok' ) ) {
 	/**
 	 * Print status message
 	 *
@@ -240,6 +264,11 @@ if ( get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value
  * @return bool True if product is virtual, else false.
  */
 function wfg_has_physical_products() {
+	// Return if WooCommerce hasn't been installed.
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return;
+	}
+
 	global $woocommerce;
 
 	foreach ( $woocommerce->cart->get_cart() as $product ) {
@@ -257,6 +286,11 @@ function wfg_has_physical_products() {
  * @return int|bool Product ID if cart has physical products, else false.
  */
 function wfg_has_gift() {
+	// Return if WooCommerce hasn't been installed.
+	if ( ! class_exists( 'WooCommerce' ) ) {
+		return;
+	}
+
 	global $woocommerce;
 
 	foreach ( $woocommerce->cart->get_cart() as $product ) {

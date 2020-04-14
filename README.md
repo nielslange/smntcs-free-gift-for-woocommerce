@@ -25,6 +25,9 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-woocommerce-free
 
 ## Changelog
 
+### 1.6
+* [Add check if WooCommerce is installed](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/14)
+
 ### 1.5
 * [Declaring required and supported WooCommerce version](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/9)
 * Test up to 5.4
