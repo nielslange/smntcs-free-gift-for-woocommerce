@@ -1,5 +1,8 @@
 dist: trusty
 
+notifications:
+  slack: smntcs:qFgRV2iveFc1bGrZCuWEQ2mM
+
 cache:
   directories:
     # Cache directory for older Composer versions.
