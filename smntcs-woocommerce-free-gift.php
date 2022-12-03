@@ -1,34 +1,23 @@
 <?php
 /**
- * Plugin Name: SMNTCS Free Gift for WooCommerce
- * Plugin URI: https://github.com/nielslange/smntcs-woocommerce-free-gift
- * Description: Give free gifts to your WooCommerce customers
- * Author: Niels Lange <info@nielslange.de>
- * Author URI: https://nielslange.com
- * Text Domain: smntcs-woocommerce-free-gift
- * Domain Path: /languages/
- * Version: 1.6
- * Requires at least: 3.4
- * Requires PHP: 5.6
- * Tested up to: 5.4
- * WC requires at least: 3.0
- * WC tested up to: 4.0
- * License: GPL2+
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Plugin Name:           SMNTCS Free Gift for WooCommerce
+ * Plugin URI:            https://github.com/nielslange/smntcs-woocommerce-free-gift
+ * Description:           Give free gifts to your WooCommerce customers.
+ * Author:                Niels Lange
+ * Author URI:            https://nielslange.de
+ * Text Domain:           smntcs-woocommerce-free-gift
+ * Version:               1.7
+ * Requires PHP:          5.6
+ * Requires at least:     3.4
+ * WC requires at least:  3.0
+ * WC tested up to:       7.1
+ * License:               GPL v2 or later
+ * License URI:           https://www.gnu.org/licenses/gpl-2.0.html
  *
- * @category   Plugin
- * @package    WordPress
- * @subpackage SMNTCS Free Gift for WooCommerce
- * @author     Niels Lange <info@nielslange.de>
- * @license    http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @package SMNTCS_Free_Gift_for_WooCommerce
  */
 
-/**
- * Avoid direct plugin access
- */
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Show warning if WooCommerce is not active or WooCommerce version < 3.0
@@ -50,16 +39,6 @@ add_action(
 );
 
 /**
- * Load text domain
- *
- * @return void
- */
-function wfg_load_textdomain() {
-	load_plugin_textdomain( 'smntcs-woocommerce-free-gift', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-}
-add_action( 'plugins_loaded', 'wfg_load_textdomain' );
-
-/**
  * Enhance WordPress customizer
  *
  * @param WP_Customize_Manager $wp_customize The customizer object.
@@ -74,9 +53,9 @@ function wfg_enhance_customizer( $wp_customize ) {
 	}
 
 	// Fetch WooCommerce categories.
-	$product_cats = get_terms( 'product_cat' );
-	foreach ( $product_cats as $product_cat ) {
-		$choices[ $product_cat->slug ] = $product_cat->name;
+	$product_categories = get_terms( 'product_cat' );
+	foreach ( $product_categories as $product_category ) {
+		$choices[ $product_category->slug ] = $product_category->name;
 	}
 
 	// Create customizer section.
@@ -163,7 +142,7 @@ function wfg_enhance_customizer( $wp_customize ) {
 	$wp_customize->add_setting(
 		'wfg_message_value_low',
 		array(
-			'default' => 'From an order value of EUR 10.00 you will receive a free gift from me.',
+			'default' => __( 'From an order value of EUR 10.00 you will receive a free gift from me.', 'smntcs-woocommerce-free-gift' ),
 			'type'    => 'option',
 		)
 	);
@@ -180,7 +159,7 @@ function wfg_enhance_customizer( $wp_customize ) {
 	$wp_customize->add_setting(
 		'wfg_button_value_low',
 		array(
-			'default' => 'Proceed shopping',
+			'default' => __( 'Proceed shopping', 'smntcs-woocommerce-free-gift' ),
 			'type'    => 'option',
 		)
 	);
@@ -197,7 +176,7 @@ function wfg_enhance_customizer( $wp_customize ) {
 	$wp_customize->add_setting(
 		'wfg_message_value_ok',
 		array(
-			'default' => 'Hurrah, your order value is above EUR 10.00. May I give you a free gift?',
+			'default' => __( 'Hurrah, your order value is above EUR 10.00. May I give you a free gift?', 'smntcs-woocommerce-free-gift' ),
 			'type'    => 'option',
 		)
 	);
@@ -214,7 +193,7 @@ function wfg_enhance_customizer( $wp_customize ) {
 	$wp_customize->add_setting(
 		'wfg_button_value_ok',
 		array(
-			'default' => 'Yes, please!',
+			'default' => __( 'Yes, please!', 'smntcs-woocommerce-free-gift' ),
 			'type'    => 'option',
 		)
 	);
