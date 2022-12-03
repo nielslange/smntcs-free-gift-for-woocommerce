@@ -1,13 +1,13 @@
 # SMNTCS Free Gift for WooCommerce
 
-![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level)
-![Build Status](https://api.travis-ci.com/nielslange/smntcs-woocommerce-free-gift.svg?branch=master)](https://api.travis-ci.com/nielslange/smntcs-woocommerce-free-gift)
-![GPLv2 License](https://img.shields.io/github/license/nielslange/smntcs-woocommerce-free-gift.svg)](https://www.gnu.org/licenses/gpl.html)
-![Compatible to WordPress version](https://plugintests.com/plugins/smntcs-woocommerce-free-gift/wp-badge.svg)](https://plugintests.com/plugins/smntcs-woocommerce-free-gift/latest)
-![Compatible to PHP version](https://plugintests.com/plugins/smntcs-woocommerce-free-gift/php-badge.svg)](https://plugintests.com/plugins/smntcs-woocommerce-free-gift/latest)
-![Downloads](https://img.shields.io/wordpress/plugin/dt/smntcs-woocommerce-free-gift.svg)](https://wordpress.org/plugins/smntcs-woocommerce-free-gift/)
-![Plugin Version](https://img.shields.io/wordpress/plugin/v/smntcs-woocommerce-free-gift.svg)](https://wordpress.org/plugins/smntcs-woocommerce-free-gift/)
-![Tag Version](https://img.shields.io/github/tag/nielslange/smntcs-woocommerce-free-gift.svg)](https://wordpress.org/plugins/smntcs-woocommerce-free-gift/)
+![Support Level](https://img.shields.io/badge/support-active-green.svg)
+![Build Status](https://api.travis-ci.com/nielslange/smntcs-woocommerce-free-gift.svg?branch=trunk)
+![GPLv2 License](https://img.shields.io/github/license/nielslange/smntcs-woocommerce-free-gift.svg)
+![Compatible to WordPress version](https://plugintests.com/plugins/smntcs-woocommerce-free-gift/wp-badge.svg)
+![Compatible to PHP version](https://plugintests.com/plugins/smntcs-woocommerce-free-gift/php-badge.svg)
+![Downloads](https://img.shields.io/wordpress/plugin/dt/smntcs-woocommerce-free-gift.svg)
+![Plugin Version](https://img.shields.io/wordpress/plugin/v/smntcs-woocommerce-free-gift.svg)
+![Tag Version](https://img.shields.io/github/tag/nielslange/smntcs-woocommerce-free-gift.svg)
 
 Give free gifts to your WooCommerce customers
 
