@@ -25,6 +25,10 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-woocommerce-free
 
 ## Changelog
 
+### 1.8 (2023.10.15)
+
+- Test up to WP 6.4
+
 ### 1.7 (2022.12.03)
 
 - Test up to WP 6.1

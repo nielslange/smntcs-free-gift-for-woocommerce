@@ -6,7 +6,7 @@
  * Author:                Niels Lange
  * Author URI:            https://nielslange.de
  * Text Domain:           smntcs-woocommerce-free-gift
- * Version:               1.7
+ * Version:               1.8
  * Requires PHP:          5.6
  * Requires at least:     3.4
  * WC requires at least:  3.0

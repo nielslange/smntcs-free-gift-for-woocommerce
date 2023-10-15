@@ -2,12 +2,16 @@
 	"name": "nielslange/smntcs-woocommerce-free-gift",
 	"type": "plugin",
 	"description": "Give free gifts to your WooCommerce customers",
+	"homepage": "https://github.com/nielslange/smntcs-woocommerce-free-gift",
+	"support": {
+		"issues": "https://github.com/nielslange/smntcs-woocommerce-free-gift/issues",
+		"source": "https://github.com/nielslange/smntcs-woocommerce-free-gift"
+	},
 	"keywords": [
 		"WordPress",
 		"Plugin",
 		"SMNTCS Free Gift for WooCommerce"
 	],
-	"homepage": "https://github.com/nielslange/smntcs-woocommerce-free-gift",
 	"license": "GPL-3.0-or-later",
 	"authors": [
 		{
@@ -16,20 +20,25 @@
 		}
 	],
 	"require": {
-		"php": ">=5.6"
+		"php": ">=7.0"
 	},
 	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-		"jakub-onderka/php-parallel-lint": "^1.0",
-		"wptrt/wpthemereview": "^0.2.1"
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+		"humanmade/psalm-plugin-wordpress": "^2.0",
+		"overtrue/phplint": "^3.0",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"squizlabs/php_codesniffer": "^3.6",
+		"vimeo/psalm": "^4.7",
+		"wp-coding-standards/wpcs": "^2.3"
 	},
 	"scripts": {
-		"checkcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs --runtime-set testVersion 5.6-",
-		"fixcs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf --runtime-set testVersion 5.6-",
-		"lint": "@php ./vendor/bin/parallel-lint --exclude .git --exclude vendor ."
+		"phpcbf": "phpcbf --standard=phpcs.dist.xml .",
+		"phpcs": "phpcs --standard=phpcs.dist.xml .",
+		"phplint": "phplint"
 	},
-	"support": {
-		"issues": "https://github.com/nielslange/smntcs-woocommerce-free-gift/issues",
-		"source": "https://github.com/nielslange/smntcs-woocommerce-free-gift"
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }
