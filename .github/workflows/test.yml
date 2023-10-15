@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v1
+        uses: ramsey/composer-install@v2
 
       - name: Show PHPLint version info
         run: ./vendor/bin/phplint --version
