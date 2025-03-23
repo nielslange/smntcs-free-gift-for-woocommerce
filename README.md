@@ -25,13 +25,17 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-woocommerce-free
 
 ## Changelog
 
+### 1.9 (2025.03.23)
+
+- Test up to WordPress 6.8
+
 ### 1.8 (2023.10.15)
 
-- Test up to WP 6.4
+- Test up to WordPress 6.4
 
 ### 1.7 (2022.12.03)
 
-- Test up to WP 6.1
+- Test up to WordPress 6.1
 
 ### 1.6 (2020.04.14)
 
@@ -41,20 +45,20 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-woocommerce-free
 ### 1.5 (2020.04.07)
 
 - [Declaring required and supported WooCommerce version](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/9)
-- Test up to WP 5.4
+- Test up to WordPress 5.4
 
 ### 1.4 (2019.11.18)
 
-- Test up to WP 5.3
+- Test up to WordPress 5.3
 
 ### 1.3 (2019.06.28)
 
-- Test up to WP 5.2
+- Test up to WordPress 5.2
 
 ### 1.2 (2019.02.19)
 
 - Add README.md
-- Test up to WP 5.0
+- Test up to WordPress 5.0
 
 ### 1.1 (2016.07.22)
 
