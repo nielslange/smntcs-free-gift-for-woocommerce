@@ -2,8 +2,8 @@
 
 Contributors:       nielslange
 Tags:               WooCommerce Gift, Free Gift
-Stable tag:         1.9
-Tested up to:       6.8
+Stable tag:         2.0
+Tested up to:       7.0
 Requires PHP:       7.4
 Requires at least:  3.0
 License:            GPL v2 or later
@@ -56,6 +56,10 @@ No, at the moment a random gift will be assigned.
 4. Gift that has been added to the cart by the user
 
 == Changelog ==
+
+= 2.0 (2026.08.14) =
+
+- Test up to WordPress 7.0
 
 = 1.9 (2025.03.23) =
 

@@ -6,7 +6,7 @@
  * Author:                Niels Lange
  * Author URI:            https://nielslange.de
  * Text Domain:           smntcs-woocommerce-free-gift
- * Version:               1.9
+ * Version:               2.0
  * Requires PHP:          7.4
  * Requires at least:     3.4
  * WC requires at least:  3.0
@@ -227,8 +227,7 @@ if ( get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value
 
 		if ( $woocommerce->cart->subtotal < get_option( 'wfg_minimum_cart_value' ) && ! wfg_has_gift() ) {
 			wc_print_notice( get_option( 'wfg_message_value_low' ) . ' <a href="/shop">' . get_option( 'wfg_button_value_low' ) . '</a>', 'notice' );
-		} else {
-			if ( ! wfg_has_gift() ) {
+		} elseif ( ! wfg_has_gift() ) {
 				$args = array(
 					'post_type'      => 'product',
 					'product_cat'    => get_option( 'wfg_gift_category' ),
@@ -237,7 +236,6 @@ if ( get_option( 'wfg_enable_free_gift' ) && get_option( 'wfg_minimum_cart_value
 				);
 				$gift = new WP_Query( $args );
 				wc_print_notice( get_option( 'wfg_message_value_ok' ) . '  <a href="?add-to-cart=' . $gift->post->ID . '">' . get_option( 'wfg_button_value_ok' ) . '</a>', 'success' );
-			}
 		}
 	}
 	add_action( 'woocommerce_before_cart_table', 'wfg_status_message', 100 );
