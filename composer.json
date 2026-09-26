@@ -16,18 +16,20 @@
 		}
 	],
 	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "1.0.0",
-		"humanmade/psalm-plugin-wordpress": "3.1.1",
-		"overtrue/phplint": "9.5.6",
-		"phpcompatibility/phpcompatibility-wp": "2.1.6",
-		"squizlabs/php_codesniffer": "3.13.6",
-		"vimeo/psalm": "5.26.1",
-		"wp-coding-standards/wpcs": "3.4.1"
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.2.1",
+		"humanmade/psalm-plugin-wordpress": "^3.1.2",
+		"overtrue/phplint": "^9.7",
+		"php-stubs/woocommerce-stubs": "^11.1",
+		"phpcompatibility/phpcompatibility-wp": "^2.1.8",
+		"squizlabs/php_codesniffer": "^3.13.5",
+		"vimeo/psalm": "^6.18",
+		"wp-coding-standards/wpcs": "^3.4.1"
 	},
 	"scripts": {
 		"phpcbf": "phpcbf --standard=phpcs.dist.xml .",
 		"phpcs": "phpcs --standard=phpcs.dist.xml .",
-		"phplint": "phplint"
+		"phplint": "phplint",
+		"psalm": "psalm --no-cache"
 	},
 	"config": {
 		"allow-plugins": {

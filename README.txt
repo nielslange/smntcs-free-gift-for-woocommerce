@@ -1,25 +1,32 @@
-=  SMNTCS Free Gift for WooCommerce =
+=== SMNTCS Free Gift for WooCommerce ===
 
 Contributors:       nielslange
-Tags:               WooCommerce Gift, Free Gift
-Stable tag:         2.0
-Tested up to:       7.0
+Tags:               woocommerce, free gift, gift, promotion, cart
+Requires at least:  5.9
+Tested up to:       7.1
 Requires PHP:       7.4
-Requires at least:  3.0
+Stable tag:         2.1
 License:            GPL v2 or later
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
-Give free gifts to your WooCommerce customers.
+Offers customers a free gift from a product category once their WooCommerce cart reaches a minimum value.
 
 == Description ==
 
-SMNTCS Free Gift for WooCommerce is a lightweight plugin to give away free gifts to your WooCommerce customers.
+SMNTCS Free Gift for WooCommerce rewards customers who spend a little more. Pick a product category for your gifts and a minimum cart value. When the cart is below that value, customers see how much more they need to spend. Once they reach it, they can add a random gift from the gift category with one click.
+
+= Features =
+
+* Works with the classic cart and the Cart block
+* Set the minimum cart value and the gift category in the Customizer
+* Write your own messages and button texts, with {amount} for the minimum cart value
+* Optionally hide gift products and the gift category from the shop and search results
 
 == Installation ==
 
 1. Upload the plugin to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the `Plugins` menu in WordPress.
-3. Go to `Appearance` » `Customize`.
+3. Go to `Appearance` » `Customize` » `WooCommerce` » `Free Gift`.
 4. Enable free gifts.
 5. Adjust settings based on your needs.
 
@@ -30,12 +37,12 @@ SMNTCS Free Gift for WooCommerce is a lightweight plugin to give away free gifts
 1. Go to `Products` » `Categories` and create a category for the gifts, e.g. Gift.
 2. Go to `Products` » `Add Product` and create your gift product.
 3. Make sure to set the `Regular price` to 0 and the `Catalog visibility` to `Hidden`.
-4. Go to `Appearance` » `Customise` » `Customise`.
+4. Go to `Appearance` » `Customize` » `WooCommerce` » `Free Gift`.
 5. Activate the checkbox `Enable free gift`.
 6. Provide the `Minimum cart value`, e.g. 10.00.
 7. Select the `Gift category`.
-8. Provide a message for `Message "Proceed shopping"`.
-9. Provide a message for `Button "Proceed shopping"`.
+8. Provide a message for `Message "Continue shopping"`.
+9. Provide a message for `Button "Continue shopping"`.
 10. Provide a message for `Message "Add gift"`.
 11. Provide a message for `Button "Add gift"`.
 12. Click on `Save & Publish`.
@@ -51,11 +58,24 @@ No, at the moment a random gift will be assigned.
 == Screenshots ==
 
 1. Setting within the Customizer
-2. Message when total order amount is to low
+2. Message when total order amount is too low
 3. Message when total order amount is above the minimum value
 4. Gift that has been added to the cart by the user
 
 == Changelog ==
+
+= 2.1 (2026.09.26) =
+
+- Test up to WordPress 7.1
+- Update development dependencies and GitHub Actions
+- Test up to WooCommerce 11.1
+- Fix the cart messages not showing until every setting had been saved in the Customizer
+- Show the gift message above the Cart block
+- Fix the option to hide the gift category, and also hide gift products from the shop and search
+- Add the {amount} placeholder for the minimum cart value
+- Link to the shop page instead of /shop
+- Fix PHP warnings for products without categories and for gift categories without products
+- Declare compatibility with High-Performance Order Storage and the Cart and Checkout blocks
 
 = 2.0 (2026.08.14) =
 

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<psalm errorLevel="5" resolveFromConfigFile="true"
+<psalm findUnusedCode="false" errorLevel="5" resolveFromConfigFile="true"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="https://getpsalm.org/schema/config" xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd">
 	<projectFiles>
@@ -11,4 +11,14 @@
 	<plugins>
 		<pluginClass class="PsalmWordPress\Plugin"/>
 	</plugins>
+	<stubs>
+		<file name="vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php"/>
+	</stubs>
+	<issueHandlers>
+		<PluginIssue name="HookNotFound">
+			<errorLevel type="suppress">
+				<file name="*.php"/>
+			</errorLevel>
+		</PluginIssue>
+	</issueHandlers>
 </psalm>
