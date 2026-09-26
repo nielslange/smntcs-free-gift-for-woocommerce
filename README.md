@@ -15,7 +15,7 @@ Give free gifts to your WooCommerce customers
 
 1. Upload the plugin to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the `Plugins` menu in WordPress.
-3. Go to `Appearance` » `Customize`.
+3. Go to `Appearance` » `Customize` » `WooCommerce` » `Free Gift`.
 4. Enable free gifts.
 5. Adjust settings based on your needs.
 
@@ -24,6 +24,19 @@ Give free gifts to your WooCommerce customers
 You can find the plugin on https://wordpress.org/plugins/smntcs-woocommerce-free-gift/.
 
 ## Changelog
+
+### 2.1 (2026.09.26)
+
+- Test up to WordPress 7.1
+- Update development dependencies and GitHub Actions
+- Test up to WooCommerce 11.1
+- Fix the cart messages not showing until every setting had been saved in the Customizer
+- Show the gift message above the Cart block
+- Fix the option to hide the gift category, and also hide gift products from the shop and search
+- Add the {amount} placeholder for the minimum cart value
+- Link to the shop page instead of /shop
+- Fix PHP warnings for products without categories and for gift categories without products
+- Declare compatibility with High-Performance Order Storage and the Cart and Checkout blocks
 
 ### 2.0 (2026.08.14)
 
