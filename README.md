@@ -1,13 +1,13 @@
 # SMNTCS Free Gift for WooCommerce
 
 ![Support Level](https://img.shields.io/badge/support-active-green.svg)
-![Build Status](https://api.travis-ci.com/nielslange/smntcs-woocommerce-free-gift.svg?branch=trunk)
-![GPLv2 License](https://img.shields.io/github/license/nielslange/smntcs-woocommerce-free-gift.svg)
-![Compatible to WordPress version](https://plugintests.com/plugins/smntcs-woocommerce-free-gift/wp-badge.svg)
-![Compatible to PHP version](https://plugintests.com/plugins/smntcs-woocommerce-free-gift/php-badge.svg)
+![Build Status](https://github.com/nielslange/smntcs-free-gift-for-woocommerce/actions/workflows/test.yml/badge.svg)
+![GPLv2 License](https://img.shields.io/github/license/nielslange/smntcs-free-gift-for-woocommerce.svg)
+![Compatible to WordPress version](https://img.shields.io/wordpress/plugin/tested/smntcs-woocommerce-free-gift.svg)
+![Compatible to PHP version](https://img.shields.io/wordpress/plugin/required-php/smntcs-woocommerce-free-gift.svg)
 ![Downloads](https://img.shields.io/wordpress/plugin/dt/smntcs-woocommerce-free-gift.svg)
 ![Plugin Version](https://img.shields.io/wordpress/plugin/v/smntcs-woocommerce-free-gift.svg)
-![Tag Version](https://img.shields.io/github/tag/nielslange/smntcs-woocommerce-free-gift.svg)
+![Tag Version](https://img.shields.io/github/tag/nielslange/smntcs-free-gift-for-woocommerce.svg)
 
 Give free gifts to your WooCommerce customers
 
@@ -57,12 +57,12 @@ You can find the plugin on https://wordpress.org/plugins/smntcs-woocommerce-free
 
 ### 1.6 (2020.04.14)
 
-- [Add check if WooCommerce is installed](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/14)
-- [Move settings into WooCommerce customizer](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/12)
+- [Add check if WooCommerce is installed](https://github.com/nielslange/smntcs-free-gift-for-woocommerce/issues/14)
+- [Move settings into WooCommerce customizer](https://github.com/nielslange/smntcs-free-gift-for-woocommerce/issues/12)
 
 ### 1.5 (2020.04.07)
 
-- [Declaring required and supported WooCommerce version](https://github.com/nielslange/smntcs-woocommerce-free-gift/issues/9)
+- [Declaring required and supported WooCommerce version](https://github.com/nielslange/smntcs-free-gift-for-woocommerce/issues/9)
 - Test up to WordPress 5.4
 
 ### 1.4 (2019.11.18)
